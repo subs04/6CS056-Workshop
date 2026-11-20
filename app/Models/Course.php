@@ -1,16 +1,22 @@
 <?php
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Course extends Model
+{ 
+protected $fillable = [
+    'name',
+    'description',
+    'duration',
+    'fee',
+    'difficulty',
+    'is_active',
+];
+
+protected function casts(): array
 {
-    protected $fillable = [
-        'name',
-        'description',
-        'duration',
-        'fee',
-        'difficulty',
-        'is_active',
+    return [
+        'is_active' => 'boolean',
+        'fee' => 'decimal:2',
     ];
+}
 }
